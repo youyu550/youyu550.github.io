@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>端口状态展示页</title>
+    <style>
+        /* 基础样式：深色背景+白色文字 */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: "微软雅黑", sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        /* 容器：模拟手机内的卡片样式 */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            border: 2px solid #333;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        /* 标题样式 */
+        .title {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .sub-title {
+            font-size: 20px;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #444;
+        }
+        /* 信息行样式 */
+        .info-row {
+            font-size: 16px;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+        /* 按钮样式 */
+        .btn {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">梦之微端口</div>
+        <div class="sub-title">梦之微网络</div>
+        <div class="info-row">连接状态：已建立 · 加密通道</div>
+        <div class="info-row" id="current-time">当前时间：加载中...</div>
+        <div class="info-row">端口已稳定运行：6天23时45分37秒</div>
+
+        <div class="sub-title">重新连接</div>
+        <button class="btn" onclick="showResult()">强制重新连接</button>
+
+        <div class="sub-title">连接结果</div>
+        <div class="info-row" id="connect-result">等待操作...</div>
+    </div>
+
+    <script>
+        // 显示当前时间
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.getFullYear() + "年" + 
+                            (now.getMonth()+1) + "月" + 
+                            now.getDate() + "日 " + 
+                            now.getHours() + ":" + 
+                            now.getMinutes() + ":" + 
+                            now.getSeconds();
+            document.getElementById("current-time").textContent = "当前时间：" + timeStr;
+        }
+        updateTime();
+        setInterval(updateTime, 1000); // 每秒更新时间
+
+        // 模拟“重新连接”操作
+        function showResult() {
+            document.getElementById("connect-result").textContent = "连接完成！梦之微通道已开启
