@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>梦微之</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .ink-style {
+            font-family: 'Noto Serif SC', serif;
+            color: #333;
+        }
+        .ink-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            color: #000;
+        }
+        /* 验证区域视频容器 */
+        .verify-video-container {
+            width: 100%;
+            height: 120px; /* 固定视频区域高度 */
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 4px;
+            position: relative;
+        }
+        .verify-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.7) contrast(1.2);
+        }
+        /* 验证角标悬浮在视频上 */
+        .verify-badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: rgba(50, 50, 50, 0.8);
+            color: #fff;
+            border: 1px solid #000;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            z-index: 10;
+        }
+        .rice-paper-bg {
+            background-color: rgba(250, 245, 235, 0.9);
+        }
+        .ink-border {
+            border: 2px solid #333;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+        .ink-btn {
+            background-color: rgba(200, 200, 200, 0.6);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        .ink-btn:hover {
+            background-color: rgba(100, 100, 100, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .popup {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#faf5eb] p-5 ink-style overflow-hidden">
+    <!-- 主容器 -->
+    <div class="max-w-md mx-auto w-full ink-border rounded-lg p-4 rice-paper-bg relative z-10 mt-5">
+        <!-- 验证区域（嵌入视频） -->
+        <div class="verify-video-container">
+            <video class="verify-video" autoplay loop muted playsinline>
+                <source src="https://wp.kayyw.com/f/mv61T9/video_1762544043344.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+            <div class="verify-badge">已验证</div>
+        </div>
+
+        <!-- 头部标题 -->
+        <div class="text-center mb-4">
+            <h1 class="text-2xl font-bold ink-title">梦微之</h1>
+            <p class="text-xs text-[#666]">◈ 验证通过 · 绕过已开 ◈</p>
+        </div>
+
+        <!-- 状态区 -->
+        <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class="bg-[#fff]/80 rounded p-2 border border-[#333]/20">
+                <p class="text-xs text-[#666]">工具响应延迟</p>
+                <p class="text-[#333] font-bold">28 ms</p>
+            </div>
+            <div class="bg-[#fff]/80 rounded p-2 border border-[#333]/20">
+                <p class="text-xs text-[#666]">当前时辰</p>
+                <p class="text-[#333] font-bold" id="currentTime">丑时 3:59:38</p>
+            </div>
+        </div>
+
+        <!-- 核心功能区 -->
+        <div class="bg-[#fff]/80 rounded p-3 mb-4 border border-[#333]/30">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-[#333] font-bold ink-title">◈ 核心功能 ◈</span>
+                <span class="text-[#555]">⚡</span>
+            </div>
+            <ul class="text-sm space-y-2">
+                <li class="flex items-center">
+                    <span class="w-5 h-5 rounded-full bg-[#555]/10 flex items-center justify-center mr-2 border border-[#333]/20">✓</span>
+                    适配PUBG 和平精英
+                </li>
+                <li class="flex items-center">
+                    <span class="w-5 h-5 rounded-full bg-[#555]/10 flex items-center justify-center mr-2 border border-[#333]/20">✓</span>
+                    支持改文件 纯c 直装
+                </li>
+                <li class="flex items-center">
+                    <span class="w-5 h-5 rounded-full bg-[#555]/10 flex items-center justify-center mr-2 border border-[#333]/20">✓</span>
+                    梦微之加速器
+                </li>
+            </ul>
+        </div>
+
+        <!-- 官方入口 -->
+        <div class="bg-[#fff]/80 rounded p-2 mb-4 border border-[#333]/20 text-center">
+            <span class="text-[#333] font-bold">◈ 官方渠道 @MENGWEIZHI6 ◈</span>
+        </div>
+
+        <!-- 使用规范区 -->
+        <div class="bg-[#fff]/80 rounded p-3 mb-4 border border-[#333]/20">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-[#333] font-bold">◈ 使用规范 ◈</span>
+                <span class="text-[#555]">🛡️</span>
+            </div>
+            <ul class="text-xs space-y-1">
+                <li class="flex items-center"><span class="text-[#333] mr-2">▲</span> 仅支持官方合规功能</li>
+                <li class="flex items-center"><span class="text-[#333] mr-2">▲</span> 请勿用于违规游戏行为</li>
+            </ul>
+        </div>
+
+        <!-- 加入我们按钮 -->
+        <a href="https://t.me/MENGWEIZHI6" target="_blank" class="block text-center">
+            <button class="ink-btn w-full rounded p-3 text-base font-bold text-[#333]">
+                🤝 加入我们 · 我的频道
+            </button>
+        </a>
+    </div>
+
+    <script>
+        const chineseHours = [
+            "子时", "丑时", "寅时", "卯时", "辰时", "巳时",
+            "午时", "未时", "申时", "酉时", "戌时", "亥时"
+        ];
+        function updateTime() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes().toString().padStart(2, '0');
+            const second = now.getSeconds().toString().padStart(2, '0');
+            const chineseHour = chineseHours[Math.floor(hour / 2)];
+            document.getElementById('currentTime').textContent = `${chineseHour} ${hour}:${minute}:${second}`;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
